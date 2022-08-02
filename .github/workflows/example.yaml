@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Generate Output
         id: generate-value
-        run: echo "::set-output name=changed::false"
+        run: echo "::set-output name=changed::true"
       - name: Echo Output
         run: |
           echo "Changed: ${{steps.generate-value.outputs.changed}}"
