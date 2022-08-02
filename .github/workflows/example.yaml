@@ -1,0 +1,17 @@
+name: "CONDITIONAL"
+on: push
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Output
+        id: generate-value
+        run: echo "::set-output name=changed::true"
+      - name: Echo Output
+        run: |
+          echo "Changed: ${{steps.generate-value.outputs.changed}}"
+      - name: Conditional Step
+        if: ${{steps.generate-value.outputs.changed}}
+        run: |
+          echo "Conditional step running with changed value: ${{steps.generate-value.outputs.changed}}"
