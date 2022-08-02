@@ -10,7 +10,7 @@ jobs:
         run: echo "::set-output name=changed::true"
       - name: Echo Output
         run: |
-          echo "Changed: ${{steps.generate-value.outputs.changed}}"
+          echo "Changed: ${{typeof steps.generate-value.outputs.changed}}"
       - name: Conditional Step
         if: ${{steps.generate-value.outputs.changed == true}}
         run: |
